@@ -75,8 +75,8 @@ export const hubs: Hub[] = [
     id: "i9-hydra-2",
     name: "Industry Nine Hydra 2",
     brand: "industry-nine",
-    maxTorqueNm: null,
-    torqueDisplay: "?",
+    maxTorqueNm: 85,
+    torqueDisplay: "85 Nm",
   },
   {
     id: "i9-solix",
@@ -102,7 +102,7 @@ export const hubs: Hub[] = [
   {
     id: "ethos-ti70",
     name: "Ethos Ti70",
-    brand: "nobl",
+    brand: "erase",
     maxTorqueNm: 100,
     torqueDisplay: "100 Nm",
   },
@@ -116,6 +116,5 @@ export const HUB_BRAND_LABELS: Record<string, string> = {
   "industry-nine": "I9",
   p321: "Project 321",
   erase: "Erase",
-  nobl: "NOBL",
   other: "",
 };
