@@ -1,0 +1,190 @@
+/* NOBL Wheels — Design Tokens + Global Styles */
+
+:root {
+  /* Brand */
+  --nobl-blue:          #0093ca;
+  --nobl-blue-hover:    #007aaa;
+  --nobl-blue-dim:      rgba(0, 147, 202, 0.07);
+  --nobl-blue-border:   rgba(0, 147, 202, 0.35);
+  --nobl-gold:          #c8a96e;
+
+  /* Dark zone surfaces */
+  --near-black:         #111111;
+  --dark-surface:       #1a1a1a;
+  --dark-rule:          #262626;
+
+  /* Text */
+  --body-text:          #333333;
+  --muted-text:         #888888;
+  --label-text:         #878787;
+  --white:              #ffffff;
+
+  /* Light zone */
+  --rule:               #e0e0e0;
+  --off-white:          #f5f5f5;
+  --bg:                 #ffffff;
+
+  /* Blueprint grid (dark zones only) */
+  --blueprint-grid:     rgba(0, 147, 202, 0.055);
+  --blueprint-cell:     28px;
+
+  /* Typography */
+  --font-display:       "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:          "Didact Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Type scale */
+  --type-stat:          38px;
+  --type-button:        15px;
+  --type-body-lg:       18px;
+  --type-body:          16px;
+  --type-body-sm:       14px;
+  --type-caption:       12px;
+  --type-eyebrow:       11px;
+  --type-eyebrow-sm:    10px;
+
+  /* Letter spacing */
+  --ls-button:          1.5px;
+  --ls-eyebrow:         2px;
+  --ls-eyebrow-wide:    3px;
+
+  /* Line heights */
+  --lh-display:         1.0;
+  --lh-body:            1.5;
+
+  /* Spacing */
+  --space-4:    4px;
+  --space-8:    8px;
+  --space-12:   12px;
+  --space-16:   16px;
+  --space-24:   24px;
+  --space-32:   32px;
+  --space-40:   40px;
+  --space-48:   48px;
+  --space-64:   64px;
+
+  /* Status colors — functional, for compatibility display */
+  --status-ok:          #3a6b50;
+  --status-ok-bg:       rgba(58, 107, 80, 0.07);
+  --status-ok-border:   rgba(58, 107, 80, 0.3);
+  --status-warn:        #8d6c35;
+  --status-warn-bg:     rgba(141, 108, 53, 0.07);
+  --status-warn-border: rgba(141, 108, 53, 0.3);
+  --status-bad:         #943040;
+  --status-bad-bg:      rgba(148, 48, 64, 0.07);
+  --status-bad-border:  rgba(148, 48, 64, 0.3);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  color: var(--body-text);
+  background: var(--off-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  color: var(--near-black);
+}
+
+a {
+  color: var(--nobl-blue);
+  text-decoration: none;
+  transition: color 120ms linear;
+}
+a:hover { color: var(--nobl-blue-hover); }
+
+/* Eyebrow label */
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--type-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--label-text);
+}
+
+/* Select */
+.select {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  color: var(--body-text);
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  padding: 10px 36px 10px 12px;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 120ms linear;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M0 0l4.5 5L9 0z' fill='%23888888'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.select:focus { border-color: var(--nobl-blue); }
+.select option { background: var(--white); color: var(--body-text); }
+
+/* Search */
+.search {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  color: var(--body-text);
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  padding: 10px 12px 10px 38px;
+  outline: none;
+  transition: border-color 120ms linear;
+}
+.search:focus { border-color: var(--nobl-blue); }
+.search::placeholder { color: var(--muted-text); }
+
+/* Blueprint grid helper */
+.blueprint-bg {
+  background-color: var(--near-black);
+  background-image:
+    linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
+  background-size: var(--blueprint-cell) var(--blueprint-cell);
+}
+
+/* Table base */
+table { width: 100%; border-collapse: collapse; }
+
+thead tr { background: var(--near-black); }
+thead th {
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: var(--type-eyebrow-sm);
+  font-weight: 400;
+  letter-spacing: var(--ls-eyebrow-wide);
+  text-transform: uppercase;
+  color: var(--muted-text);
+  white-space: nowrap;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--rule);
+  transition: background 120ms linear;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--off-white); }
+tbody td {
+  padding: 10px 16px;
+  font-size: var(--type-body-sm);
+  color: var(--body-text);
+}

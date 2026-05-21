@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dev *)",
+      "Bash(pnpm vue-tsc *)",
+      "Bash(curl -s http://localhost:5174/)"
+    ]
+  }
+}
